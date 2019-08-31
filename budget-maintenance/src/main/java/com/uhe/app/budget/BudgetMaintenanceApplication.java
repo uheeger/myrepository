@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BudgetMaintenanceApplication {
 
 	public static void main(String[] args) {
+        System.out.println();
 		SpringApplication.run(BudgetMaintenanceApplication.class, args);
 	}
 
