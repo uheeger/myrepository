@@ -7,7 +7,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BudgetMaintenanceApplication {
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
   
+=======
+		SpringApplication.run(BudgetMaintenanceApplication.class, args);
+        System.out.println();
+         System.out.println();
+>>>>>>> newbranch
 	}
 
 }
