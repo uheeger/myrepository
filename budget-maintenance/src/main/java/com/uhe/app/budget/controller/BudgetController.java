@@ -1,7 +1,7 @@
 package com.uhe.app.budget.controller;
 
-import com.uhe.app.budget.model.MonthlyModel;
 import com.uhe.app.budget.model.Payment;
+import com.uhe.app.budget.model.response.MonthlyModel;
 import com.uhe.app.budget.service.BudgetService;
 
 import io.swagger.annotations.Api;

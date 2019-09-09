@@ -10,8 +10,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.uhe.app.budget.model.MonthlyModel;
 import com.uhe.app.budget.model.Payment;
+import com.uhe.app.budget.model.response.MonthlyModel;
 import com.uhe.app.budget.obj.PaymentType;
 import com.uhe.app.budget.service.BudgetService;
 

@@ -16,8 +16,8 @@ import org.junit.runner.RunWith;
 
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.uhe.app.budget.model.MonthlyModel;
 import com.uhe.app.budget.model.Payment;
+import com.uhe.app.budget.model.response.MonthlyModel;
 import com.uhe.app.budget.obj.PaymentType;
 import com.uhe.app.budget.service.BudgetService;
 
