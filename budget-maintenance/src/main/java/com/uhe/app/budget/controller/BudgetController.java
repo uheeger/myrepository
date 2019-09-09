@@ -6,6 +6,7 @@ import com.uhe.app.budget.service.BudgetService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
@@ -22,15 +23,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 
-@RequestMapping("/test")
-@Api(value="/test",description="Test Swagger",produces ="application/json")
+@RequestMapping("/")
+@Api(value="/",description="Test Swagger",produces ="application/json")
 public class BudgetController {
 	
 	@Autowired
 	private BudgetService budgetService;
 	
-	@ApiOperation(value = "Einzahlung", produces = "application/json",
+	@ApiOperation(value = "Einzahlung/Auszahlung", produces = "application/json",
             response = Payment.class)
+	@ApiParam(value = "value=\"${property1.description}", hidden=true, required=false)
     @ApiResponses(value = {
             @ApiResponse(code = 200,
                     message = "OK"),
