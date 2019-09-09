@@ -1,4 +1,4 @@
-package com.uhe.app.budget.model;
+package com.uhe.app.budget.model.response;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import com.uhe.app.budget.model.Payment;
 
 public class MonthlyModel {
 

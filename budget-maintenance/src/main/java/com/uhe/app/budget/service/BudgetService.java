@@ -2,8 +2,8 @@ package com.uhe.app.budget.service;
 
 import static java.util.stream.Collectors.toList;
 
-import com.uhe.app.budget.model.MonthlyModel;
 import com.uhe.app.budget.model.Payment;
+import com.uhe.app.budget.model.response.MonthlyModel;
 import com.uhe.app.budget.obj.PaymentType;
 
 import java.math.BigDecimal;
