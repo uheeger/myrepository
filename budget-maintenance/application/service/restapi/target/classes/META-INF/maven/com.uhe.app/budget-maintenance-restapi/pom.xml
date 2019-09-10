@@ -3,24 +3,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
-	<groupId>com.uhe.app</groupId>
-	<artifactId>budget-maintenance-root</artifactId>
-	<version>0.0.1</version>
-	<packaging>pom</packaging>
-	
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.5.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<groupId>com.uhe.app</groupId>
+		<artifactId>budget-maintenance-root</artifactId>
+		<version>0.0.1</version>
 	</parent>
-
-	<name>budget-maintenance</name>
+	<groupId>com.uhe.app</groupId>
+	<artifactId>budget-maintenance-restapi</artifactId>
+	<version>0.0.1</version>
+	<name>budget-maintenance Rest API</name>
 	<description>budget maintenance project</description>
-	<modules>
-		<module>restapi</module>
-	</modules>
+
 
 	<properties>
 		<java.version>1.8</java.version>
