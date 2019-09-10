@@ -1,6 +1,9 @@
 package com.uhe.app.budget.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.uhe.app.budget.obj.PaymentType;
+
+import io.swagger.annotations.ApiModelProperty;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -17,6 +20,8 @@ public class Payment {
 	@NotNull
 	private PaymentType typ;
 
+	@ApiModelProperty(hidden = true)
+	@JsonIgnore
 	private LocalDate datum = LocalDate.now();
 	
 	@Nullable

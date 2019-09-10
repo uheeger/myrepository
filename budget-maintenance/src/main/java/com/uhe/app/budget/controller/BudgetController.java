@@ -32,7 +32,6 @@ public class BudgetController {
 	
 	@ApiOperation(value = "Einzahlung/Auszahlung", produces = "application/json",
             response = Payment.class)
-	@ApiParam(value = "value=\"${property1.description}", hidden=true, required=false)
     @ApiResponses(value = {
             @ApiResponse(code = 200,
                     message = "OK"),
