@@ -10,10 +10,13 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.uhe.app</groupId>
-	<artifactId>budget-maintenance</artifactId>
+	<artifactId>budget-maintenance-root</artifactId>
 	<version>0.0.1</version>
 	<name>budget-maintenance</name>
 	<description>budget maintenance project</description>
+	<modules>
+		<module>restapi</module>
+	</modules>
 
 	<properties>
 		<java.version>1.8</java.version>
