@@ -5,7 +5,7 @@
  */
 package com.uhe.app.server.api;
 
-import com.uhe.app.server.model.Payment;
+import com.uhe.app.server.model.MonthlyModel;
 
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
@@ -24,26 +24,24 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-10T18:02:12.946+02:00")
 
-@Api(value = "add", description = "the add API")
-public interface AddApi {
+@Api(value = "delete", description = "the delete API")
+public interface DeleteApi {
 
-    @ApiOperation(value = "Einzahlung/Auszahlung", notes = "", response = Payment.class, tags={ "budget-controller", })
+    @ApiOperation(value = "Monatsliste löschen", notes = "", response = MonthlyModel.class, tags={ "budget-controller", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK", response = Payment.class),
-        @ApiResponse(code = 201, message = "Created", response = Void.class),
+        @ApiResponse(code = 200, message = "OK", response = MonthlyModel.class),
+        @ApiResponse(code = 204, message = "No Content", response = Void.class),
         @ApiResponse(code = 400, message = "Ungültige Anfrage", response = Void.class),
         @ApiResponse(code = 401, message = "Unauthorized", response = Void.class),
         @ApiResponse(code = 403, message = "Unerlaubter Zugriff", response = Void.class),
-        @ApiResponse(code = 404, message = "Not Found", response = Void.class),
         @ApiResponse(code = 500, message = "Ein allgemeiner Serverfehler ist aufgetreten", response = Void.class) })
     
-    @RequestMapping(value = "/add",
+    @RequestMapping(value = "/delete/{year}/{month}",
         produces = { "*/*", "application/json" }, 
-        consumes = { "application/json" },
-        method = RequestMethod.POST)
-    default ResponseEntity<Payment> addPaymentUsingPOST(@ApiParam(value = "payment" ,required=true )  @Valid @RequestBody Payment payment) {
+        method = RequestMethod.DELETE)
+    default ResponseEntity<MonthlyModel> deleteUsingDELETE(@ApiParam(value = "month",required=true ) @PathVariable("month") String month,@ApiParam(value = "year",required=true ) @PathVariable("year") String year) {
         // do some magic!
-        return new ResponseEntity<Payment>(HttpStatus.OK);
+        return new ResponseEntity<MonthlyModel>(HttpStatus.OK);
     }
 
 }

@@ -24,7 +24,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-10T14:40:45.422+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-10T18:03:34.192+02:00")
 @Component("com.uhe.app.client.api.BudgetControllerApi")
 public class BudgetControllerApi {
     private ApiClient apiClient;
@@ -135,5 +135,54 @@ public class BudgetControllerApi {
 
         ParameterizedTypeReference<MonthlyModel> returnType = new ParameterizedTypeReference<MonthlyModel>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
+    }
+    /**
+     * Monatsliste löschen
+     * 
+     * <p><b>200</b> - OK
+     * <p><b>204</b> - No Content
+     * <p><b>400</b> - Ungültige Anfrage
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Unerlaubter Zugriff
+     * <p><b>500</b> - Ein allgemeiner Serverfehler ist aufgetreten
+     * @param month month
+     * @param year year
+     * @return MonthlyModel
+     * @throws RestClientException if an error occurs while attempting to invoke the API
+     */
+    public MonthlyModel deleteUsingDELETE(String month, String year) throws RestClientException {
+        Object postBody = null;
+        
+        // verify the required parameter 'month' is set
+        if (month == null) {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'month' when calling deleteUsingDELETE");
+        }
+        
+        // verify the required parameter 'year' is set
+        if (year == null) {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'year' when calling deleteUsingDELETE");
+        }
+        
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<String, Object>();
+        uriVariables.put("month", month);
+        uriVariables.put("year", year);
+        String path = UriComponentsBuilder.fromPath("/delete/{year}/{month}").buildAndExpand(uriVariables).toUriString();
+        
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+
+        final String[] accepts = { 
+            "*/*", "application/json"
+        };
+        final List<MediaType> accept = apiClient.selectHeaderAccept(accepts);
+        final String[] contentTypes = { };
+        final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
+
+        String[] authNames = new String[] {  };
+
+        ParameterizedTypeReference<MonthlyModel> returnType = new ParameterizedTypeReference<MonthlyModel>() {};
+        return apiClient.invokeAPI(path, HttpMethod.DELETE, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
 }

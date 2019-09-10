@@ -18,6 +18,8 @@ import javax.validation.Valid;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 
@@ -45,8 +47,9 @@ public class BudgetController {
 			@ApiResponse(code = 403, message = "Unerlaubter Zugriff"),
 			@ApiResponse(code = 500, message = "Ein allgemeiner Serverfehler ist aufgetreten") })
 	@PostMapping("/add")
-	public @ResponseBody Payment addPayment(@Valid @RequestBody Payment payment) {
-		return budgetService.addPayment(payment).orElseThrow(BudgetException::new);
+	public @ResponseBody ResponseEntity<Payment> addPayment(@Valid @RequestBody Payment payment) {
+		Payment retVal = budgetService.addPayment(payment).orElseThrow(BudgetException::new);
+		return new ResponseEntity<>(retVal, HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "Statusabfrage", produces = "application/json", response = MonthlyModel.class)
@@ -55,8 +58,8 @@ public class BudgetController {
 			@ApiResponse(code = 403, message = "Unerlaubter Zugriff"),
 			@ApiResponse(code = 500, message = "Ein allgemeiner Serverfehler ist aufgetreten") })
 	@GetMapping("/stat")
-	public @ResponseBody MonthlyModel askForStat(@RequestParam int year, @RequestParam int month) {
-		return budgetService.createMonthlyModel(year, month);
+	public @ResponseBody ResponseEntity<MonthlyModel> askForStat(@RequestParam int year, @RequestParam int month) {
+		return new ResponseEntity<>(budgetService.createMonthlyModel(year, month), HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "Monatsliste löschen", produces = "application/json", response = MonthlyModel.class)
@@ -65,13 +68,13 @@ public class BudgetController {
 			@ApiResponse(code = 403, message = "Unerlaubter Zugriff"),
 			@ApiResponse(code = 500, message = "Ein allgemeiner Serverfehler ist aufgetreten") })
 	@DeleteMapping("/delete/{year}/{month}")
-	public @ResponseBody MonthlyModel delete(@ApiParam(value = "year", required = true) @PathVariable("year") String year,
+	public @ResponseBody ResponseEntity<MonthlyModel> delete(@ApiParam(value = "year", required = true) @PathVariable("year") String year,
 			@ApiParam(value = "month", required = true) @PathVariable("month") String month) {
 		int y = StringUtils.isNumeric(year) ? Integer.parseInt(year) : 0;
 		int m = StringUtils.isNumeric(month) ? Integer.parseInt(month) : 0;
-		return new MonthlyModel(Collections.<Payment>emptyList(), 
+		return new ResponseEntity<>(new MonthlyModel(Collections.<Payment>emptyList(), 
 				Collections.<String, BigDecimal>emptyMap(), y,
-				m, BigDecimal.ZERO);
+				m, BigDecimal.ZERO), HttpStatus.OK);
 	}
 
 }

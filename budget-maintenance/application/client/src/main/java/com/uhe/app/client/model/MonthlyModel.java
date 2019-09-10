@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * MonthlyModel
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-10T14:40:45.422+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-10T18:03:34.192+02:00")
 public class MonthlyModel {
   @JsonProperty("auszahlungen")
   private List<ReturnPaymentOut> auszahlungen = null;

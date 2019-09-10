@@ -65,4 +65,21 @@ public class BudgetControllerApiTest {
         // TODO: test validations
     }
     
+    /**
+     * Monatsliste löschen
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteUsingDELETETest() {
+        String month = null;
+        String year = null;
+        MonthlyModel response = api.deleteUsingDELETE(month, year);
+
+        // TODO: test validations
+    }
+    
 }
