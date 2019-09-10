@@ -8,16 +8,15 @@ import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import javax.validation.constraints.NotNull;
 
 import org.springframework.lang.Nullable;
 
 public class Payment {
 
-	@NotNull
+
 	private BigDecimal betrag;
 
-	@NotNull
+
 	private PaymentType typ;
 
 	@ApiModelProperty(hidden = true)
